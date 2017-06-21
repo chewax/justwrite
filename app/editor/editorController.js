@@ -5,6 +5,7 @@ angular.module('justWrite.editor')
     .controller('EditorController', ['editorServices', '$interval', '$window', function (editorServices, $interval, $window) {
 
         var previousDelta;
+        
 
         var quillModules = {
                 toolbar: [
@@ -24,7 +25,7 @@ angular.module('justWrite.editor')
             theme: 'snow'
         };
 
-        var quill = new Quill('.editor', quillOptions);
+        var quill = new Quill('.writebox', quillOptions);
         var Delta = Quill.import('delta');
 
         // var changes = new Delta();
@@ -62,28 +63,31 @@ angular.module('justWrite.editor')
         var ctrlDown = false;
         var shiftDown = false;
 
-        var ctrlKey = 17;
-        var shiftKey = 16;
-        var commandKey = 91;
-        var sKey = 83;
-        var zKey = 90;
+
+        var keys = {
+            ctrl: 17,
+            shift: 16,
+            command: 91,
+            s: 83,
+            z: 90
+        };
 
         angular.element($window).bind("keyup", function($event) {
-            if ($event.keyCode == ctrlKey || $event.keyCode == commandKey) ctrlDown = false;
-            if ($event.keyCode == shiftKey) shiftDown = false;
+            if ($event.keyCode == keys.ctrl || $event.keyCode == keys.command) ctrlDown = false;
+            if ($event.keyCode == keys.shift) shiftDown = false;
         });
 
         angular.element($window).bind("keydown", function($event) {
-            if ($event.keyCode == ctrlKey || $event.keyCode == commandKey) ctrlDown = true;
-            if ($event.keyCode == shiftKey) shiftDown = true;
+            if ($event.keyCode == keys.ctrl || $event.keyCode == keys.command) ctrlDown = true;
+            if ($event.keyCode == keys.shift) shiftDown = true;
 
             if (ctrlDown && !shiftDown) {    
                 
-                if ($event.keyCode == zKey) {
+                if ($event.keyCode == keys.z) {
                     undo ();
                 }
 
-                if ($event.keyCode == sKey) {
+                if ($event.keyCode == keys.s) {
                     $event.preventDefault();
                     $event.stopPropagation();
                     commitVersion ();
@@ -92,17 +96,16 @@ angular.module('justWrite.editor')
 
             if (ctrlDown && shiftDown) {    
                 
-                if ($event.keyCode == zKey) {
+                if ($event.keyCode == keys.z) {
                     redo ();
                 }
                 
-                if ($event.keyCode == sKey) {
+                if ($event.keyCode == keys.s) {
                     $event.preventDefault();
                     $event.stopPropagation();
                     forkVersion();
                 }
             }
-
         });
 
         function undo () {
