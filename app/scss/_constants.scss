@@ -1,0 +1,19 @@
+$font-stack:    Helvetica, sans-serif;
+$primary-color: #333;
+
+//commits-width + writebox-width + scraps-width debe ser 99vw;
+$commits-width: 20%;
+$writebox-width: 60%;
+$scraps-width: 20%;
+
+
+//Media Queries
+$break-phone: 320px;
+$break-tablets: 768px;
+$break-desktops: 992px;
+$break-widescreens: 1200px;
+
+$information-phone: "only screen and (max-width : "#{$break-phone}")";
+$information-tablets: "only screen and (max-width : "#{$break-tablets}")";
+$information-desktops: "only screen and (max-width : "#{$break-desktops}")";
+$information-widescreens: "only screen and (max-width : "#{$break-widescreens}")";

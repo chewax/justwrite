@@ -1,0 +1,10 @@
+.writebox {
+    display: inline-block;
+    width: 60%;
+
+    .writebox-wrapper {
+        position: relative;
+        height: 100%;
+        width: 100%;
+    }
+}

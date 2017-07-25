@@ -1,0 +1,102 @@
+/* -------------------------------------------------------------
+  Sass CSS3 Mixins! The Cross-Browser CSS3 Sass Library
+  By: Matthieu Aussaguel, http://www.mynameismatthieu.com, @matthieu_tweets
+
+  List of CSS3 Sass Mixins File to be @imported and @included as you need
+
+  The purpose of this library is to facilitate the use of CSS3 on different browsers avoiding HARD TO READ and NEVER
+  ENDING css files
+
+  note: All CSS3 Properties are being supported by Safari 5
+  more info: http://www.findmebyip.com/litmus/#css3-properties
+
+------------------------------------------------------------- */
+@import url(https://fonts.googleapis.com/css?family=Open+Sans);
+.editor {
+  text-align: center; }
+  .editor .commits {
+    display: inline-block;
+    width: 20%;
+    float: left;
+    height: 100vh;
+    background-color: red; }
+    .editor .commits .commit {
+      display: block;
+      margin: 3px;
+      min-height: 20px;
+      background-color: green; }
+  .editor .writebox {
+    display: inline-block;
+    width: 60%; }
+    .editor .writebox .writebox-wrapper {
+      position: relative;
+      height: 100%;
+      width: 100%; }
+  .editor .scraps {
+    display: inline-block;
+    width: 20%;
+    float: right;
+    height: 100vh;
+    background-color: red; }
+    .editor .scraps .scrap {
+      display: block;
+      margin: 3px;
+      min-height: 20px;
+      background-color: green;
+      width: 100%;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis; }
+      .editor .scraps .scrap ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 5px 10px; }
+        .editor .scraps .scrap ul li {
+          display: inline-block;
+          min-width: 60px;
+          margin-right: 10px;
+          background-color: yellow;
+          -webkit-border-radius: 10px;
+          -khtml-border-radius: 10px;
+          -moz-border-radius: 10px;
+          -ms-border-radius: 10px;
+          -o-border-radius: 10px;
+          border-radius: 10px; }
+
+.menu {
+  width: 100%;
+  height: 100px;
+  background-color: blue; }
+  .menu ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    padding-top: 20px;
+    padding-left: 20px; }
+    .menu ul li {
+      display: inline-block;
+      min-width: 60px;
+      margin-right: 10px;
+      background-color: yellow; }
+
+.ctx-menu {
+  position: absolute;
+  z-index: 1000; }
+  .ctx-menu ul {
+    padding: 0;
+    list-style-type: none;
+    position: absolute;
+    background-color: white;
+    border: solid #CCCCCC 1px; }
+    .ctx-menu ul li {
+      margin: 0.5em;
+      padding: 0;
+      height: 24px;
+      text-align: left;
+      line-height: 24px;
+      vertical-align: center;
+      white-space: nowrap;
+      overflow: hidden; }
+      .ctx-menu ul li:hover {
+        background-color: #CCCCCC;
+        cursor: default; }

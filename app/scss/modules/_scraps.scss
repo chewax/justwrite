@@ -1,0 +1,33 @@
+.scraps {
+    
+    display: inline-block;
+    width: $scraps-width;
+    float: right;
+    height: 100vh;
+    background-color: red;
+
+    .scrap {
+        display: block;
+        margin: 3px;
+        min-height: 20px;
+        background-color: green;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+
+        ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 5px 10px;   
+        
+        li {
+            display: inline-block;
+            min-width: 60px;
+            margin-right: 10px;
+            background-color: yellow;
+            @include border-radius(10px);
+        }
+    }
+    }
+}

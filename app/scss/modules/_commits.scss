@@ -1,0 +1,14 @@
+.commits {
+    display: inline-block;
+    width: $commits-width;
+    float: left;
+    height: 100vh;
+    background-color: red;
+
+    .commit {
+        display: block;
+        margin: 3px;
+        min-height: 20px;
+        background-color: green;
+    }
+}

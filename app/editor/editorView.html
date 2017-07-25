@@ -1,7 +1,30 @@
-<div class="commits-wrapper">
+<div class="editor">
     
-</div>
-<div class="editor-wrapper">
-    <div class="editor">
+
+    <div class="commits">
+        <div class="commit" ng-repeat="commit in commits" ng-click="loadCommit(commit._id)">
+            {{commit.name}}
+        </div>
     </div>
+    
+    <div class="writebox">
+        <div class="writebox-wrapper">
+            <ctx-menu></ctx-menu>
+            <div class="writebox-editor" ctx-menu></div>
+        </div>
+    </div>
+
+    <div class="scraps">
+        <div class="scrap" ng-repeat="scrap in scraps" ng-mouseover="scrapOnMouseOver(scrap._id)" ng-mouseleave="scrapOnMouseLeave(scrap._id)" ng-click="loadScrap(scrap._id)" >
+            {{scrap.value}}
+            <ul>
+                <li ng-repeat="tag in scrap.tags">
+                    {{tag}}
+                </li>
+            </ul>
+        </div>
+    </div>
+
 </div>
+
+

@@ -12,6 +12,8 @@
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/normalize.css">
   <link rel="stylesheet" href="bower_components/html5-boilerplate/dist/css/main.css">
   <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/flexboxgrid/6.3.1/flexboxgrid.min.css" type="text/css" >
+
   <script src="bower_components/html5-boilerplate/dist/js/vendor/modernizr-2.8.3.min.js"></script>
 
   <!-- Quill stylesheets -->
@@ -28,6 +30,8 @@
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
   <![endif]-->
 
+  <div ng-include="'core/menu.html'"></div>
+
   <div ng-view></div>
 
   <!--<div>Angular seed app: v<span app-version></span></div>-->
@@ -37,10 +41,15 @@
   -->
   <script src="bower_components/angular/angular.js"></script>
   <script src="bower_components/angular-route/angular-route.js"></script>
+  <script src="bower_components/lodash/lodash.js"></script>
   <script src="app.js"></script>
   <script src="components/version/version.js"></script>
   <script src="components/version/version-directive.js"></script>
   <script src="components/version/interpolate-filter.js"></script>
+  <script src="components/keypress/keypress-2.1.4.min.js"></script>
+
+
+
 
   <!-- Main Quill library -->
   <script src="//cdn.quilljs.com/1.2.6/quill.js"></script>
@@ -51,6 +60,11 @@
   <script src="editor/editorConfig.js"></script>
   <script src="editor/editorController.js"></script>
   <script src="editor/editorServices.js"></script>
+  <script src="editor/editorDirectives.js"></script>
+
+  <!--Utils-->
+  <script src="utils/keypress/keypress.js"></script>
+  <script src="utils/lodash/lodash.js"></script>
   
 </body>
 </html>

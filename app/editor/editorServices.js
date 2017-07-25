@@ -1,7 +1,10 @@
 angular.module('justWrite.editor')
 
-        .factory('editorServices', ['$http',
-            function ($http) {
+        .factory('editorServices', ['$http', '_',
+            function ($http, _) {
+
+            var lastCommitId = -1;
+            var lastScrapId = -1;
 
             var dirty = {
                 data: []
@@ -10,6 +13,10 @@ angular.module('justWrite.editor')
             var commits = {
                 data: []
             };
+
+            var scraps = {
+                data: []
+            }
 
             var services = {
                 saveDirtyChanges: function (changes) {
@@ -23,7 +30,9 @@ angular.module('justWrite.editor')
                 },
 
                 commitChanges: function(name, changes) {
+                    lastCommitId += 1;
                     var commit = {
+                        _id: lastCommitId,
                         name: name,
                         timestamp: Date.now(),
                         changes: changes
@@ -35,6 +44,37 @@ angular.module('justWrite.editor')
 
                 getCommits: function() {
                     return Promise.resolve(commits);
+                },
+
+                getCommit: function(commitId) {
+                    return Promise.resolve(commits.data[commitId]);
+                },
+
+                newScrap: function (scrap, tags) {
+                    lastScrapId += 1;
+                    scrap._id = lastScrapId;
+                    scrap.timestamp = Date.now();
+                    scrap.tags = tags;
+
+                    scraps.data.push(scrap)
+                    return Promise.resolve(scrap);
+                },
+
+                getScrap: function (scrapId) {
+                    return Promise.resolve(scraps.data[scrapId]);
+                },
+
+                getScraps: function () {
+                    return Promise.resolve(scraps);
+                },
+
+                getScrapsWithTags: function(tags){
+
+                    var resScrap = _.filter(scraps.data, function(s){
+                        return _.intersection(s.tags, tags).length > 0;
+                    })
+
+                    return Promise.resolve(resScrap);
                 }
             };
 
